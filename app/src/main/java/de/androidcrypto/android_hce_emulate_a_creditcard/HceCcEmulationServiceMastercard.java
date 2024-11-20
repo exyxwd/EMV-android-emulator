@@ -61,6 +61,7 @@ public class HceCcEmulationServiceMastercard extends HostApduService {
 
     @Override
     public byte[] processCommandApdu(byte[] commandApdu, Bundle bundle) {
+        sendMessageToActivity("# processCommandApdu received", bytesToHexNpe(commandApdu));
         sendMessageToActivity("------------------------", "----");
         sendMessageToActivity("# Mastercard #", bytesToHexNpe(commandApdu));
 

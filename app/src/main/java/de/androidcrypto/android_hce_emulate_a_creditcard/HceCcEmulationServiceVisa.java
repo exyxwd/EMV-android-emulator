@@ -57,6 +57,7 @@ public class HceCcEmulationServiceVisa extends HostApduService {
 
     @Override
     public byte[] processCommandApdu(byte[] commandApdu, Bundle bundle) {
+        sendMessageToActivity("# processCommandApdu received", bytesToHexNpe(commandApdu));
         sendMessageToActivity("------------------------", "----");
         sendMessageToActivity("# Visa Card #", bytesToHexNpe(commandApdu));
 
