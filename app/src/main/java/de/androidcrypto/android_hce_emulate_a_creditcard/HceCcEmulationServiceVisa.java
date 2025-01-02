@@ -30,7 +30,7 @@ public class HceCcEmulationServiceVisa extends HostApduService {
 
     // this is a static approach to serve the byte arrays to the service
 
-    private static final byte[] RESPONSE_OK_SW = hexStringToByteArray("9000");
+    private static final byte[] RESPONSE_OK_SW = hexStringToByteArray("9100");
     // Note: the responses does not include the 0x9000h terminator
     private static final byte[] SELECT_PPSE_COMMAND = hexStringToByteArray("00a404000e325041592e5359532e444446303100");
     private static final byte[] SELECT_PPSE_RESPONSE = hexStringToByteArray("6f2b840e325041592e5359532e4444463031a519bf0c1661144f07a00000000310109f0a080001050100000000");

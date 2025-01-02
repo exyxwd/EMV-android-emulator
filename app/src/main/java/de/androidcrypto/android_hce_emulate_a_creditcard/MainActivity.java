@@ -8,6 +8,7 @@ import android.content.IntentFilter;
 import android.content.pm.ActivityInfo;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -26,6 +27,8 @@ public class MainActivity extends AppCompatActivity {
     @SuppressLint("SourceLockedOrientationActivity")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Log.d("Created", "----: ");
+
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_main);
@@ -35,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
         tvHceServiceLog = findViewById(R.id.tvHceServiceLog);
+        Logger.initialize(tvHceServiceLog);
 
         /**
          * Note on this setting: Do NOT remove this setting or the app will fail when the screen goes
@@ -75,7 +79,11 @@ public class MainActivity extends AppCompatActivity {
 
     private void appendMessageToLog(String message, String data) {
         hceServiceLog += message + " | " + data + "\n";
-        tvHceServiceLog.setText(hceServiceLog);
+        Log.d("Appended--", "----: ");
+
+        //tvHceServiceLog.setText(hceServiceLog);
+        Logger.log("MainActivity", message + " | " + data);
+
     }
 
     private void showAToast(Context context, String message) {
@@ -86,6 +94,8 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public void onReceive(Context context, Intent intent) {
             // Get extra data included in the Intent
+            Log.d("Received--", "----: ");
+
             String message = intent.getStringExtra("Message");
             String data = intent.getStringExtra("Data");
             appendMessageToLog(message, data);

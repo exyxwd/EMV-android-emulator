@@ -28,7 +28,7 @@
         </activity>
 
         <service
-            android:name=".HceCcEmulationServiceVisa"
+            android:name=".HceCcEmulationServiceMastercard"
             android:exported="true"
             android:permission="android.permission.BIND_NFC_SERVICE">
             <intent-filter>
